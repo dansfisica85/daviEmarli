@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo Detalhado - Capacitação Técnica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+        }
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .topic-button.active {
+            background-color: #ef4444; /* red-500 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .topic-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .topic-button:hover:not(.active) {
+            background-color: #f3f4f6; /* gray-100 */
+            transform: translateY(-2px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e5e7eb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                 <svg width="40" height="40" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.8667 4.66663C22.8667 4.66663 20.3724 12.0619 25.132 16.8213C29.8915 21.5808 39.548 18.2506 39.548 18.2506C39.548 18.2506 33.3952 20.3061 31.2586 25.7973C29.1221 31.2885 32.7493 39.6666 32.7493 39.6666C32.7493 39.6666 28.1826 34.6213 22.8667 34.0666C17.5507 33.512 12.1333 38.0426 12.1333 38.0426C12.1333 38.0426 15.352 28.5253 11.088 24.2613C6.82395 19.9973 4.66669 21.4666 4.66669 21.4666C4.66669 21.4666 11.248 16.936 14.9333 13.2506C18.6186 9.56528 22.8667 4.66663 22.8667 4.66663Z" fill="#f87171"/>
+                    <path d="M41.5333 18.6667C41.5333 18.6667 45.924 26.5573 39.8869 31.5746C33.8498 36.592 25.048 33.7494 25.048 33.7494C25.048 33.7494 32.1893 37.1906 34.8213 42.6818C37.4533 48.173 34.5333 51.3334 34.5333 51.3334C34.5333 51.3334 34.8693 43.84 41.2133 41.6054C47.5573 39.3707 51.3333 44.3334 51.3333 44.3334C51.3333 44.3334 49.3867 34.9067 43.68 30.2027C37.9733 25.4987 35.816 28.4267 35.816 28.4267C35.816 28.4267 39.3387 25.68 41.7653 22.8214C44.192 19.9627 41.5333 18.6667 41.5333 18.6667Z" fill="#ef4444"/>
+                </svg>
+                <h1 class="text-xl md:text-2xl font-bold tracking-wider">Resumo da Capacitação Técnica</h1>
+            </div>
+            <p class="hidden md:block text-sm text-gray-300">Sala do Futuro</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- Topic Buttons -->
+        <section id="topics" class="mb-8">
+            <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Selecione um Tópico</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 md:gap-4">
+                <button class="topic-button active p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic1">1. Introdução</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic2">2. Sala do Futuro</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic3">3. Diário de Classe</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic4">4. Alteração de Grade</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic5">5. Professor Eventual</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic6">6. Professor Presente</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic7">7. Responsabilidades</button>
+                <button class="topic-button p-3 text-center rounded-lg bg-white shadow-sm border" data-target="topic8">8. Atendimento</button>
+            </div>
+        </section>
+
+        <!-- Content Display Area -->
+        <div id="content-area" class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+            
+            <!-- Topic 1: Introdução e Contexto -->
+            <div id="topic1" class="content-section active">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="info"></i>1. Introdução e Contexto</h3>
+                <ul class="space-y-4 list-disc list-inside">
+                    <li><strong class="font-semibold">Capacitação Técnica (02.06 – SP) CVESC:</strong> Indica a data e local da capacitação.</li>
+                    <li><strong class="font-semibold">Pontos Focais:</strong> Enfatiza a adoção pelos responsáveis, o entendimento e divulgação das novidades para a rede, e o direcionamento de dúvidas.</li>
+                    <li><strong class="font-semibold">CIE/NVE:</strong> Orienta as escolas a atualizarem os telefones dos responsáveis. É crucial a atualização da ficha do aluno (200 mil alunos sem responsável) e a identificação do responsável pelo diário de classe.</li>
+                    <li><strong class="font-semibold">Papéis e Responsabilidades em 2025:</strong> Define as funções relacionadas à Sala do Futuro.</li>
+                </ul>
+            </div>
+
+            <!-- Topic 2: Sala do Futuro -->
+            <div id="topic2" class="content-section">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="school"></i>2. Sala do Futuro</h3>
+                <ul class="space-y-4 list-disc list-inside">
+                    <li><strong class="font-semibold">Definição:</strong> Ecossistema que centraliza acessos e informações acadêmicas e administrativas.</li>
+                    <li><strong class="font-semibold">Objetivo (Alunos):</strong> Torná-los mais autônomos e engajados. Acessam, em média, 7 vezes ao dia.</li>
+                    <li><strong class="font-semibold">Objetivo (Responsáveis):</strong> Aproximá-los da vida escolar.
+                        <div class="mt-2 ml-6 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-r-lg">
+                            <p><strong class="font-semibold">DICA:</strong> Atualizar dados na SED a cada 6 meses. O acesso é liberado em <strong class="font-semibold">24 horas</strong> após o cadastro.</p>
+                        </div>
+                    </li>
+                    <li><strong class="font-semibold">IMPORTANTE:</strong> Toda correção de dados e documentos é feita na <strong class="font-semibold">SED</strong>, que é a base de dados para a Sala do Futuro.</li>
+                    <li><strong class="font-semibold">Cenário Atual:</strong> Apenas 192.300 (7,7%) de 2.500.000 responsáveis acessam; 357 escolas não têm nenhum acesso.</li>
+                </ul>
+            </div>
+
+            <!-- Topic 3: Diário de Classe -->
+            <div id="topic3" class="content-section">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="book-marked"></i>3. Diário de Classe</h3>
+                <p class="mb-4"><strong class="font-semibold">Definição:</strong> Ferramenta oficial para registro da rotina pedagógica, integrada à Sala do Futuro e à SED.</p>
+                
+                <h4 class="font-semibold text-lg mt-4 mb-2">Impacto dos Sistemas (Problemas e Prazos Implícitos):</h4>
+                <ul class="space-y-2 list-disc list-inside mb-4">
+                    <li><strong>Matriz Curricular não cadastrada:</strong> Impossibilita associação professor-classe.</li>
+                    <li><strong>Calendário não homologado:</strong> Impede lançamento de frequência/aulas.</li>
+                    <li><strong>Coleta de classe não realizada:</strong> Bloqueia todos os lançamentos.</li>
+                    <li><strong>Horário/Grade Horária ausente:</strong> Impacta registros de aula e frequência.</li>
+                </ul>
+
+                <h4 class="font-semibold text-lg mt-4 mb-2">Funcionalidades:</h4>
+                 <ul class="space-y-3 list-disc list-inside">
+                    <li><strong>Frequência:</strong> Lançamento apenas a partir do horário da aula. "Duplicar Lançamento" disponível.</li>
+                    <li><strong>Registro de Aulas:</strong> Pode ser feito antes da aula. Máximo de dois materiais por aula.</li>
+                    <li><strong>Avaliação:</strong> Mínimo 2, máximo 10. Soma dos pesos deve ser 100%.</li>
+                    <li><strong>Fechamento:</strong> Notas e faltas editáveis (dentro do prazo), outros campos bloqueados ou de preenchimento específico.</li>
+                 </ul>
+            </div>
+
+            <!-- Topic 4: Regra de Alteração da Grade Horária -->
+            <div id="topic4" class="content-section">
+                 <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="calendar-clock"></i>4. Regra de Alteração da Grade Horária</h3>
+                <div class="space-y-4">
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                        <h4 class="font-semibold text-blue-800">Como funciona na prática:</h4>
+                        <p class="text-blue-700">Uma alteração na grade feita <strong class="font-semibold">hoje</strong> (ex: 28/04/2025) só entrará em vigor no sistema no <strong class="font-semibold">dia seguinte às 5h00 da manhã</strong> (ex: 29/04/2025). A alteração não é retroativa para o dia em que foi feita.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg mt-4 mb-2">Exemplo de Vigência:</h4>
+                        <ul class="space-y-2 border p-4 rounded-lg">
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-red-600">28/04/25:</span>
+                                <div>
+                                    <p>Alteração é feita no sistema.</p>
+                                    <p class="text-sm text-gray-600">O sistema ainda considera a grade antiga para este dia.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start gap-3">
+                                <span class="font-bold text-red-600">29/04/25 (5h):</span>
+                                <div>
+                                    <p>A nova grade entra em vigor.</p>
+                                     <p class="text-sm text-gray-600">A grade do dia 28/04 permanece a antiga.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start gap-3">
+                                <span class="font-bold text-red-600">05/05/25:</span>
+                                <div>
+                                    <p>Primeira segunda-feira em que o professor pode fazer lançamentos com a nova grade.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 5: Acesso do Professor Eventual -->
+            <div id="topic5" class="content-section">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="user-check"></i>5. Acesso do Professor Eventual</h3>
+                <ul class="space-y-4 list-disc list-inside">
+                    <li><strong class="font-semibold">Acesso ao Diário de Classe:</strong> A gestão escolar deve vincular o professor eventual à turma via módulo "Professor Presente" na SED.</li>
+                    <li><strong class="font-semibold">Prazo de Acesso:</strong> O acesso é garantido por <strong class="font-semibold">5 dias corridos</strong>, contados a partir do horário da aula atribuída.</li>
+                    <li><strong class="font-semibold">Funcionalidades Disponíveis:</strong> O professor eventual pode apenas realizar o lançamento de <strong class="font-semibold">frequência e registro de aula</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Topic 6: Professor Presente -->
+            <div id="topic6" class="content-section">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="user-plus"></i>6. Professor Presente</h3>
+                <ul class="space-y-4 list-disc list-inside">
+                    <li><strong class="font-semibold">Definição:</strong> Ferramenta oficial para registrar substituições de aulas.</li>
+                    <li><strong class="font-semibold">Como Registrar:</strong> Na SED, acesse: Recursos Humanos > Professor Presente > Gestão Presença Professor.</li>
+                    <li><strong class="font-semibold">Condição para Substituição:</strong> Só é possível se o professor regente ainda não tiver lançado a frequência e o registro da aula.</li>
+                    <li><strong class="font-semibold">Consequência:</strong> Ao indicar um substituto, o professor regente ficará com falta. A indicação só pode ser excluída se o substituto ainda não tiver feito nenhum lançamento.</li>
+                    <li><strong class="font-semibold">Contabilização da Presença:</strong> A presença do eventual só é confirmada após o registro de frequência E de aula.</li>
+                </ul>
+            </div>
+
+            <!-- Topic 7: Papéis e Responsabilidades SEDUC -->
+            <div id="topic7" class="content-section">
+                 <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="shield-check"></i>7. Papéis e Responsabilidades (Sala do Futuro)</h3>
+                 <p class="mb-4">A equipe da Sala do Futuro é responsável pelo <strong class="font-semibold">funcionamento da plataforma</strong>, e não pelos dados contidos nela. </p>
+                 <h4 class="font-semibold text-lg mt-4 mb-2">Exemplos de responsabilidades da Sala do Futuro:</h4>
+                <ul class="space-y-2 list-disc list-inside">
+                    <li>Problemas de login e acesso geral (exceto Gov.br).</li>
+                    <li>Interface e usabilidade (navegação, bugs visuais, app fechando).</li>
+                    <li>Funcionalidades de Mensageria, Conquistas, Pesquisa.</li>
+                    <li>Justificativa de faltas enviadas pelos responsáveis.</li>
+                    <li>Rota entre visões pedagógica e administrativa.</li>
+                </ul>
+                <div class="mt-4 bg-red-50 border-l-4 border-red-500 text-red-800 p-4 rounded-r-lg">
+                    <p><strong class="font-semibold">Atenção:</strong> A Sala do Futuro <strong class="font-semibold">APENAS EXIBE</strong> dados como Boletim, Frequência, Agenda, etc. Problemas com esses dados (ex: nota errada) devem ser tratados com a origem (professor, escola, SED).</p>
+                </div>
+            </div>
+
+            <!-- Topic 8: Centro de Atendimento -->
+            <div id="topic8" class="content-section">
+                <h3 class="text-2xl font-bold mb-4 text-red-600 flex items-center gap-2"><i data-lucide="message-square-heart"></i>8. Centro de Atendimento (CEAT)</h3>
+                <p>Esta seção detalha como e onde obter suporte técnico e orientação.</p>
+                <p class="mt-2">O documento original apresenta fluxogramas e exemplos de como abrir chamados corretamente no portal de atendimento para garantir agilidade e clareza na resolução de problemas.</p>
+                <!-- O texto fornecido não tem mais detalhes, então esta seção permanece breve -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto p-6 text-center">
+            <p>&copy; 2025 Diretoria de Ensino de Sertãozinho/SP. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-1">Website interativo criado a partir do Resumo da Capacitação Técnica.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+
+        const topicButtons = document.querySelectorAll('.topic-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        topicButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+
+                // Atualiza botões
+                topicButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Atualiza conteúdo
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
